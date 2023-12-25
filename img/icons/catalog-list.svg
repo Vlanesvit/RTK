@@ -1,0 +1,16 @@
+<svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="path-1-inside-1_401_889" fill="white">
+<rect width="3" height="3" rx="1" transform="matrix(-1 0 0 1 3.24591 0.27832)"/>
+</mask>
+<rect width="3" height="3" rx="1" transform="matrix(-1 0 0 1 3.24591 0.27832)" stroke="#D2E3F0" stroke-width="3" mask="url(#path-1-inside-1_401_889)"/>
+<rect x="-0.5" y="0.5" width="2" height="2" rx="0.5" transform="matrix(-1 0 0 1 2.24591 4.42578)" fill="#D2E3F0" stroke="#D2E3F0"/>
+<mask id="path-3-inside-2_401_889" fill="white">
+<rect width="3" height="3" rx="1" transform="matrix(-1 0 0 1 3.24591 8.57373)"/>
+</mask>
+<rect width="3" height="3" rx="1" transform="matrix(-1 0 0 1 3.24591 8.57373)" stroke="#D2E3F0" stroke-width="3" mask="url(#path-3-inside-2_401_889)"/>
+<rect x="-0.5" y="0.5" width="2" height="2" rx="0.5" transform="matrix(-1 0 0 1 2.24591 12.7212)" fill="#D2E3F0" stroke="#D2E3F0"/>
+<rect x="-0.5" y="0.5" width="12" height="2" rx="0.5" transform="matrix(-1 0 0 1 16.3934 0.5)" fill="#D2E3F0" stroke="#D2E3F0"/>
+<rect x="-0.5" y="0.5" width="12" height="2" rx="0.5" transform="matrix(-1 0 0 1 16.3934 4.5)" fill="#D2E3F0" stroke="#D2E3F0"/>
+<rect x="-0.5" y="0.5" width="12" height="2" rx="0.5" transform="matrix(-1 0 0 1 16.3934 8.5)" fill="#D2E3F0" stroke="#D2E3F0"/>
+<rect x="-0.5" y="0.5" width="12" height="2" rx="0.5" transform="matrix(-1 0 0 1 16.3934 12.5)" fill="#D2E3F0" stroke="#D2E3F0"/>
+</svg>
