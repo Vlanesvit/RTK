@@ -1,0 +1,132 @@
+.rs-reviews {
+	// .rs-reviews__container
+	&__container {
+	}
+
+	// .rs-reviews__slider
+	&__slider {
+		padding-top: 10px;
+		&::before {
+			content: "";
+			pointer-events: none;
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			right: -2px;
+			bottom: -2px;
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+			z-index: 10;
+			background: linear-gradient(
+				90deg,
+				#fff 0%,
+				rgba(255, 255, 255, 0) 24.49%,
+				rgba(255, 255, 255, 0) 77.18%,
+				#fff 100%
+			);
+		}
+
+		// pag (hor, bul)
+		.swiper-horizontal > .swiper-pagination-bullets,
+		.swiper-pagination-bullets.swiper-pagination-horizontal,
+		.swiper-pagination-custom,
+		.swiper-pagination-fraction {
+			bottom: 0px;
+			left: 0;
+			width: 100%;
+			margin-top: 18px;
+		}
+
+		.swiper-pagination {
+			position: relative;
+			text-align: center;
+			transition: 0.3s opacity;
+			transform: translate3d(0, 0, 0);
+			z-index: 10;
+		}
+
+		// pag-item
+		.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+		.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+			margin: 0 6px;
+		}
+
+		.swiper-pagination-bullet {
+			width: 33px;
+			height: 3px;
+			display: inline-block;
+			border-radius: 1px;
+			background: #aebfcc;
+			opacity: 1;
+			transition: all 0.3s ease 0s;
+		}
+
+		.swiper-pagination-bullet-active {
+			opacity: 1;
+			background: var(--primary-color);
+		}
+	}
+
+	// .rs-reviews__swiper
+	&__swiper {
+	}
+
+	// .rs-reviews__slide
+	&__slide {
+		min-height: 100px;
+		height: auto;
+	}
+
+	// .rs-reviews__item
+	&__item {
+		height: 100%;
+		padding: 40px;
+		border-radius: 10px;
+		background: #f1f5f7;
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	// .rs-reviews__head
+	&__head {
+		img {
+			width: 62px;
+			height: 62px;
+			margin-bottom: 50px;
+		}
+	}
+
+	// .rs-reviews__body
+	&__body {
+		margin-bottom: 20px;
+		p {
+			color: #687684;
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 140%; /* 28px */
+			letter-spacing: 0.6px;
+		}
+	}
+
+	// .rs-reviews__footer
+	&__footer {
+		margin: auto 0px 0px 0px;
+	}
+
+	// .rs-reviews__client
+	&__client {
+		display: flex;
+		align-items: center;
+
+		img {
+			min-width: 52px;
+			min-height: 52px;
+			max-width: 52px;
+			max-height: 52px;
+			margin-right: 10px;
+			border-radius: 10px;
+		}
+	}
+}

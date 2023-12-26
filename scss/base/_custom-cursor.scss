@@ -27,7 +27,7 @@
 		justify-content: center;
 		align-items: center;
 		border-radius: 100%;
-		background-color: var(--primary-color);
+		background-color: var(--second-color);
 		opacity: 1;
 		transition: opacity 0.3s ease-in-out, height 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656),
 			width 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656);
@@ -47,17 +47,17 @@
 	}
 
 	&.cursor__active .cursor__circle {
-		width: 100px;
-		height: 100px;
+		width: 88px;
+		height: 88px;
 		opacity: 1;
 	}
 
 	&.cursor__active .cursor__circle.cursor__circle__drag {
-		width: 80px;
-		height: 80px;
+		width: 60px;
+		height: 60px;
 	}
 
 	&.cursor__active .cursor__circle.cursor__circle__drag .cursor__arrow {
-		margin: 0 7.5px;
+		margin: 0 5px;
 	}
 }

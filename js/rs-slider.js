@@ -44,6 +44,9 @@ function initMainSliders() {
 			// Анимация переключения
 			effect: 'fade',
 
+			// Курсор перетаскивания
+			grabCursor: true,
+
 			// Пагинация
 			pagination: {
 				el: '.rs-slider__pagination',

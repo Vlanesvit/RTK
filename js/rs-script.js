@@ -11,6 +11,37 @@ document.querySelectorAll('.rs-btn > span').forEach(btn => {
 });
 
 /* ====================================
+Кастомный курсор
+==================================== */
+function addCursorHover(hoveredElement, selectedElement, newClass) {
+	document.querySelectorAll(hoveredElement).forEach(hover => {
+		hover.addEventListener('mouseover', function () {
+			document.querySelector(selectedElement).classList.add(newClass)
+		})
+		hover.addEventListener('mouseout', function () {
+			document.querySelector(selectedElement).classList.remove(newClass)
+		})
+	});
+}
+function addCursorDrag(hoveredElement, selectedElement, newClass) {
+	document.querySelectorAll(hoveredElement).forEach(hover => {
+		hover.addEventListener('mousedown', function () {
+			document.querySelector(selectedElement).classList.add(newClass)
+		})
+	});
+	document.body.addEventListener('mouseup', function () {
+		document.querySelector(selectedElement).classList.remove(newClass)
+	})
+}
+function addCursorMove(selectedElement) {
+	document.body.addEventListener('mousemove', function (e) {
+		setTimeout(() => {
+			document.querySelector(selectedElement).style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+		}, 0);
+	});
+}
+
+/* ====================================
 Проверка поддержки webp, добавление класса webp или no-webp для HTML
 ==================================== */
 function isWebp() {

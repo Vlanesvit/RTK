@@ -126,29 +126,29 @@ function initBlockSliders() {
 			});
 		}
 	});
-
 }
-
-window.addEventListener("load", function (e) {
-	// Запуск инициализации слайдера
-	initCatalogSlider();
-	initBlockSliders();
-});
+initBlockSliders();
+initCatalogSlider();
 
 /* ====================================
 Анимация кнопки корзины
 ==================================== */
-const productItem = document.querySelectorAll('.product');
+function animAddCart() {
+	const productItem = document.querySelectorAll('.product');
 
-productItem.forEach(product => {
-	const cartBtn = product.querySelectorAll('.cart-btn');
+	if (productItem.length > 0) {
+		productItem.forEach(product => {
+			const cartBtn = product.querySelectorAll('.cart-btn');
 
-	cartBtn.forEach(btn => {
-		btn.addEventListener('click', function (e) {
-			e.preventDefault();
-			cartBtn.forEach(btnAll => {
-				btnAll.classList.toggle('_add-to-cart');
+			cartBtn.forEach(btn => {
+				btn.addEventListener('click', function (e) {
+					e.preventDefault();
+					cartBtn.forEach(btnAll => {
+						btnAll.classList.toggle('_add-to-cart');
+					});
+				})
 			});
-		})
-	});
-});
+		});
+	}
+}
+animAddCart()

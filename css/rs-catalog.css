@@ -68,11 +68,11 @@
 .product {
   width: 100%;
   position: relative;
-  z-index: 0;
+  z-index: 11;
 }
 @media (any-hover: hover) {
   .product:hover {
-    z-index: 1;
+    z-index: 12;
   }
   .product:hover .product__footer {
     opacity: 1;
@@ -89,6 +89,7 @@
   position: relative;
   overflow: hidden;
   z-index: 12;
+  max-height: 337px;
 }
 .product__img_slider {
   width: 100%;
