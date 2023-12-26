@@ -53,18 +53,18 @@ function initReviewsSliders() {
 				// Брекпоинты (адаптив)
 				breakpoints: {
 					320: {
-						slidesPerView: 1.2,
-						spaceBetween: 10,
+						slidesPerView: 1.05,
+						spaceBetween: 20,
+					},
+					540: {
+						slidesPerView: 1.5,
+						spaceBetween: 20,
 					},
 					767.98: {
 						slidesPerView: 2,
 						spaceBetween: 20,
 					},
 					991.98: {
-						slidesPerView: 3,
-						spaceBetween: 20,
-					},
-					1169.98: {
 						slidesPerView: 3,
 						spaceBetween: 30,
 					},

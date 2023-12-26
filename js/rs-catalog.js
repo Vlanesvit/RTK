@@ -5,7 +5,7 @@ function initCatalogSlider() {
 	if (document.querySelector('.rs-catalog__slider')) {
 		'use strict';
 		// До этой ширины слайдер будет неактивным
-		const breakpoint = window.matchMedia('(min-width: 991.98px)');
+		const breakpoint = window.matchMedia('(min-width: 1169.98px)');
 
 		let catalogNav;
 
@@ -60,12 +60,16 @@ function initCatalogSlider() {
 				// Брекпоинты (адаптив)
 				breakpoints: {
 					320: {
-						slidesPerView: 1.5,
-						spaceBetween: 40,
+						slidesPerView: 1.25,
+						spaceBetween: 20,
 					},
 					540: {
 						slidesPerView: 2,
-						spaceBetween: 40,
+						spaceBetween: 30,
+					},
+					767.98: {
+						slidesPerView: 3,
+						spaceBetween: 30,
 					},
 				},
 			});

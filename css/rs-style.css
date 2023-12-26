@@ -365,8 +365,20 @@ section {
 }
 @media (max-width: 991.98px) {
   .section-header {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding-bottom: 10px;
+  }
+  .section-header .rs-btn {
+    display: none;
   }
 }
 
@@ -376,12 +388,42 @@ section {
   font-weight: 600;
   line-height: 110%; /* 44px */
 }
+@media (max-width: 1439.98px) {
+  .rbk-semibold-40 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rbk-semibold-40 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rbk-semibold-40 {
+    font-size: 16px;
+  }
+}
 
 .rbk-medium-40 {
   font-size: 40px;
   font-style: normal;
   font-weight: 500;
   line-height: 110%; /* 44px */
+}
+@media (max-width: 1439.98px) {
+  .rbk-medium-40 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rbk-medium-40 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rbk-medium-40 {
+    font-size: 16px;
+  }
 }
 
 .rbk-medium-36 {
@@ -390,12 +432,37 @@ section {
   font-weight: 500;
   line-height: 110%; /* 39.6px */
 }
+@media (max-width: 1439.98px) {
+  .rbk-medium-36 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rbk-medium-36 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rbk-medium-36 {
+    font-size: 16px;
+  }
+}
 
 .rbk-medium-20 {
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: 110%; /* 22px */
+}
+@media (max-width: 1439.98px) {
+  .rbk-medium-20 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rbk-medium-20 {
+    font-size: 16px;
+  }
 }
 
 .rbk-regular-20 {
@@ -405,6 +472,21 @@ section {
   line-height: normal;
   letter-spacing: 0.6px;
 }
+@media (max-width: 1439.98px) {
+  .rbk-regular-20 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rbk-regular-20 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rbk-regular-20 {
+    font-size: 13px;
+  }
+}
 
 .rbk-regular-14 {
   font-size: 14px;
@@ -412,6 +494,11 @@ section {
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.42px;
+}
+@media (max-width: 991.98px) {
+  .rbk-regular-14 {
+    font-size: 13px;
+  }
 }
 
 .rs-btn {
@@ -437,6 +524,13 @@ section {
   line-height: normal;
   letter-spacing: 0.48px;
   border-radius: 10px;
+}
+@media (max-width: 991.98px) {
+  .rs-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 5px;
+  }
 }
 .rs-btn._btn-primary {
   color: #fff;

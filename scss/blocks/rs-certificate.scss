@@ -8,6 +8,10 @@
 		margin: -10px;
 		padding: 10px;
 
+		@media (max-width: 991.98px) {
+			overflow: visible;
+		}
+
 		// pag (hor, bul)
 		.swiper-horizontal > .swiper-pagination-bullets,
 		.swiper-pagination-bullets.swiper-pagination-horizontal,
@@ -17,6 +21,10 @@
 			left: 0;
 			width: 100%;
 			margin-top: 18px;
+
+			@media (max-width: 991.98px) {
+				display: none;
+			}
 		}
 
 		.swiper-pagination {
@@ -56,7 +64,7 @@
 	// .rs-certificate__slide
 	&__slide {
 		transition: all 0.3s ease 0s;
-		max-height: 304px;
+		// max-height: 304px;
 
 		@media (any-hover: hover) {
 			&:hover {

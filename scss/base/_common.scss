@@ -29,8 +29,14 @@ section {
 	}
 
 	@media (max-width: 991.98px) {
-		margin-bottom: 20px;
-		padding-bottom: 15px;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		padding-bottom: 10px;
+
+		.rs-btn {
+			display: none;
+		}
 	}
 }
 
@@ -39,6 +45,18 @@ section {
 	font-style: normal;
 	font-weight: 600;
 	line-height: 110%; /* 44px */
+
+	@media (max-width: 1439.98px) {
+		font-size: 32px;
+	}
+
+	@media (max-width: 1169.98px) {
+		font-size: 24px;
+	}
+
+	@media (max-width: 991.98px) {
+		font-size: 16px;
+	}
 }
 
 .rbk-medium-40 {
@@ -46,6 +64,18 @@ section {
 	font-style: normal;
 	font-weight: 500;
 	line-height: 110%; /* 44px */
+
+	@media (max-width: 1439.98px) {
+		font-size: 32px;
+	}
+
+	@media (max-width: 1169.98px) {
+		font-size: 24px;
+	}
+
+	@media (max-width: 991.98px) {
+		font-size: 16px;
+	}
 }
 
 .rbk-medium-36 {
@@ -53,6 +83,18 @@ section {
 	font-style: normal;
 	font-weight: 500;
 	line-height: 110%; /* 39.6px */
+
+	@media (max-width: 1439.98px) {
+		font-size: 32px;
+	}
+
+	@media (max-width: 1169.98px) {
+		font-size: 24px;
+	}
+
+	@media (max-width: 991.98px) {
+		font-size: 16px;
+	}
 }
 
 .rbk-medium-20 {
@@ -60,6 +102,14 @@ section {
 	font-style: normal;
 	font-weight: 500;
 	line-height: 110%; /* 22px */
+
+	@media (max-width: 1439.98px) {
+		font-size: 18px;
+	}
+
+	@media (max-width: 1169.98px) {
+		font-size: 16px;
+	}
 }
 
 .rbk-regular-20 {
@@ -68,6 +118,18 @@ section {
 	font-weight: 400;
 	line-height: normal;
 	letter-spacing: 0.6px;
+
+	@media (max-width: 1439.98px) {
+		font-size: 18px;
+	}
+
+	@media (max-width: 1169.98px) {
+		font-size: 15px;
+	}
+
+	@media (max-width: 991.98px) {
+		font-size: 13px;
+	}
 }
 
 .rbk-regular-14 {
@@ -76,6 +138,10 @@ section {
 	font-weight: 400;
 	line-height: normal;
 	letter-spacing: 0.42px;
+
+	@media (max-width: 991.98px) {
+		font-size: 13px;
+	}
 }
 
 // Button ========================================================================================================================================================
@@ -95,6 +161,12 @@ section {
 	line-height: normal;
 	letter-spacing: 0.48px;
 	border-radius: 10px;
+
+	@media (max-width: 991.98px) {
+		padding: 10px 20px;
+		font-size: 13px;
+		border-radius: 5px;
+	}
 
 	&._btn-primary {
 		color: #fff;

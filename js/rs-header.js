@@ -8,6 +8,7 @@ function menuFunction() {
 	function menuBurger() {
 		menus.forEach(menu => {
 			const menuBurgerBtns = menu.querySelectorAll('.menu__icon');
+			const menuBurgerClose = menu.querySelectorAll('.menu__close');
 
 			if (menuBurgerBtns) {
 				menuBurgerBtns.forEach(btn => {
@@ -17,6 +18,16 @@ function menuFunction() {
 							menuClose();
 						} else {
 							menuOpen()
+						}
+					});
+				});
+			}
+			if (menuBurgerClose) {
+				menuBurgerClose.forEach(btn => {
+					// Открываем меню
+					btn.addEventListener("click", function (e) {
+						if (document.documentElement.classList.contains("menu-open")) {
+							menuClose();
 						}
 					});
 				});
@@ -264,29 +275,6 @@ function search() {
 		const searchInput = search.querySelector('.search__input')
 		const searchForm = search.querySelector('.search__form');
 		const searchModal = document.querySelector('.search__block');
-		const searchShows = document.querySelector('.search__show');
-
-		searchShows.addEventListener('click', function (e) {
-			e.preventDefault();
-			e.stopPropagation();
-			searchToggle()
-			putСursorInInput(searchInput);
-		})
-
-		// Закрываем поиск по оверлею
-		searchModal.addEventListener('click', function (e) {
-			const target = e.target;
-			// Делегируем событие
-			if (target.classList.contains('search__close')) {
-				searchClose()
-			}
-		});
-		searchModal.addEventListener('click', function (e) {
-			e.stopPropagation();
-		});
-		document.addEventListener('click', function (e) {
-			searchClose()
-		});
 
 		// Отправка формы
 		searchSubmit.addEventListener('click', function (e) {
@@ -379,7 +367,16 @@ function initHeadCate() {
 				},
 
 				slidesPerView: 'auto',
-				spaceBetween: 20,
+
+				// Брекпоинты (адаптив)
+				breakpoints: {
+					320: {
+						spaceBetween: 10,
+					},
+					1169.98: {
+						spaceBetween: 20,
+					},
+				},
 			});
 		}
 	});

@@ -5,9 +5,12 @@
 
 	// .rs-slider-block__slider
 	&__slider {
-		z-index: 11;
 		margin: -500px -30px;
 		padding: 500px 30px;
+
+		@media (max-width: 991.98px) {
+			overflow: visible;
+		}
 
 		// pag (hor, bul)
 		.rs-slider-block__pagination.swiper-horizontal > .swiper-pagination-bullets,
@@ -18,6 +21,18 @@
 			left: 0;
 			width: 100%;
 			margin-top: 56px;
+
+			@media (max-width: 1439.98px) {
+				margin-top: 30px;
+			}
+
+			@media (max-width: 1169.98px) {
+				margin-top: 20px;
+			}
+
+			@media (max-width: 991.98px) {
+				display: none;
+			}
 		}
 
 		.rs-slider-block__pagination.swiper-pagination {
