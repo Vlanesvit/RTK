@@ -1,3 +1,6 @@
+.rs-slider-block {
+  z-index: 1;
+}
 .rs-slider-block__slider {
   margin: -500px -30px;
   padding: 500px 30px;

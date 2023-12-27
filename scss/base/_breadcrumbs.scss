@@ -1,5 +1,16 @@
 .rs-breadcrumbs {
 	position: relative;
+	margin-top: 56px;
+	margin-bottom: 26px;
+
+	@media (max-width: 1439.98px) {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	@media (max-width: 991.98px) {
+		display: none;
+	}
 
 	// .rs-breadcrumbs__container
 	&__container {
@@ -14,35 +25,47 @@
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
+		margin: -5px;
 	}
 
 	// .rs-breadcrumbs__item
 	&__item {
-		color: #fff;
-		font-size: 20px;
+		color: #687684;
+		font-size: 13px;
 		font-style: normal;
-		font-weight: 300;
+		font-weight: 400;
 		line-height: normal;
-		letter-spacing: 0.6px;
+		letter-spacing: 0.39px;
+		background-color: #f1f5f7;
+		padding: 5px 10px;
+		border-radius: 5px;
+		transition: background-color 0.3s ease 0s;
+		margin: 5px;
 
-		@media (max-width: 1439.98px) {
-			font-size: 16px;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #ffffff;
+			}
 		}
-		@media (max-width: 991.98px) {
-			font-size: 13px;
+
+		span {
+			display: inline-block;
 		}
 	}
 
 	// .rs-breadcrumbs__link
 	&__link {
-		transition: color 0.3s ease 0s;
-		color: #fff;
-
-		&::after {
+		&:after {
 			display: inline-block;
-			content: "—";
-			color: #fff;
-			margin: 0 2px;
+			content: "";
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='8' height='13' viewBox='0 0 8 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.5 1.5L6.5 6.5L1.5 11.5' stroke='%23999999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			transition: all 0.3s ease 0s;
+			width: 8px;
+			height: 8px;
+			margin-left: 3px;
 		}
 
 		@media (any-hover: hover) {
@@ -50,9 +73,5 @@
 				color: var(--tertiary-color);
 			}
 		}
-	}
-
-	&__current {
-		color: #fff;
 	}
 }

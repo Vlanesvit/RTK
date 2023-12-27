@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	margin-top: 0px;
+	margin-top: 40px;
 
 	@media (max-width: 991.98px) {
 		justify-content: center;
@@ -21,25 +21,26 @@
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		min-width: 39px;
-		min-height: 39px;
-		max-width: 39px;
-		max-height: 39px;
+		min-width: 33px;
+		min-height: 33px;
+		max-width: 33px;
+		max-height: 33px;
 		border-radius: 5px;
-		border: 1.191px solid #f2f2f2;
+		border: 1.191px solid #d2e3f0;
 		background-color: #fff;
 		color: var(--primary-color);
 
 		@media (max-width: 439.98px) {
-			min-width: 35px;
-			min-height: 35px;
-			max-width: 35px;
-			max-height: 35px;
+			min-width: 30px;
+			min-height: 30px;
+			max-width: 30px;
+			max-height: 30px;
 		}
 
-		&::before {
-			color: inherit;
-			font-size: 19px;
+		svg {
+			path {
+				transition: fill 0.3s ease 0s;
+			}
 		}
 
 		&.pagging__arrow_start,
@@ -82,7 +83,7 @@
 
 			&.pagging__arrow_start,
 			&.pagging__arrow_end {
-				color: var(--primary-color);
+				color: var(--second-color);
 				text-decoration-line: underline;
 			}
 
@@ -101,8 +102,14 @@
 
 		@media (any-hover: hover) {
 			&:hover {
-				color: #fff;
 				background-color: var(--primary-color);
+				border-color: var(--primary-color);
+
+				svg {
+					path {
+						fill: #fff;
+					}
+				}
 			}
 		}
 
@@ -120,7 +127,7 @@
 	// .pagging__item
 	&__item {
 		&:not(:last-child) {
-			margin-right: 6px;
+			margin-right: 4.5px;
 		}
 	}
 
@@ -132,23 +139,23 @@
 		align-items: center;
 		transition: all 0.3s ease 0s;
 		text-align: center;
-		min-width: 39px;
-		min-height: 39px;
-		max-width: 39px;
-		max-height: 39px;
+		min-width: 33px;
+		min-height: 33px;
+		max-width: 33px;
+		max-height: 33px;
 		font-size: 14px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: normal;
 		border-radius: 5px;
-		border: 1.191px solid #f2f2f2;
+		border: 1.191px solid #d2e3f0;
 		background-color: #fff;
 
 		@media (max-width: 439.98px) {
-			min-width: 35px;
-			min-height: 35px;
-			max-width: 35px;
-			max-height: 35px;
+			min-width: 30px;
+			min-height: 30px;
+			max-width: 30px;
+			max-height: 30px;
 		}
 	}
 
@@ -156,12 +163,14 @@
 		&._active {
 			color: #fff;
 			background-color: var(--primary-color);
+			border-color: var(--primary-color);
 		}
 
 		@media (any-hover: hover) {
 			&:hover {
 				color: #fff;
 				background-color: var(--primary-color);
+				border-color: var(--primary-color);
 			}
 		}
 	}

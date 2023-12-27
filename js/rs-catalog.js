@@ -156,3 +156,140 @@ function animAddCart() {
 	}
 }
 animAddCart()
+
+/* ====================================
+Функционал фильтров
+==================================== */
+function filterFunction() {
+	const filter = document.querySelector('.filter');
+
+	if (filter) {
+		// Отдельные блоки с фильтрами
+		const filterItems = filter.querySelectorAll('.filter__item')
+		filterItems.forEach(filterItem => {
+			// Блок чекбоксов
+			const filterCheckboxList = filterItem.querySelector('.filter__nav');
+
+			// Кнопка "Показать еще"
+			const filterShowmore = filterItem.querySelector('.filter__showmore')
+
+			if (filterCheckboxList) {
+				const filterCheckboxItems = filterCheckboxList.querySelectorAll('li input');
+
+				filterCheckboxItems.forEach(item => {
+					// Даем активный класс при клике
+					item.addEventListener('click', function () {
+						checkActiveClassCheckbbox(filterItem, filterBodyReset)
+					})
+				});
+
+				if (filterShowmore) {
+					// Показываем скрытые чекбоксы
+					filterShowmore.addEventListener('click', function () {
+						filterCheckboxItems.forEach(item => {
+							item.closest("li").style.display = 'block';
+						});
+						this.style.display = 'none';
+					});
+				}
+
+				// Функция проверки чекбоксов. Если чекбоксов <= 6 - кнопка "Показать еще" скрывается
+				function checkHideCheckbbox(filterCheckboxItems, filterShowmore) {
+					if (filterCheckboxItems && filterShowmore) {
+						if (filterCheckboxItems.length <= 6) {
+							filterShowmore.style.display = 'none';
+						} else {
+							filterShowmore.style.display = 'block';
+						}
+					}
+				}
+				checkHideCheckbbox(filterCheckboxItems, filterShowmore)
+			}
+		});
+
+		// Кнопка очистки ВСЕХ фильтров
+		const filterAllReset = filter.querySelector('.filter__control .filter__reset');
+		// Все блоки с чекбоксами
+		const filterCheckboxLists = filter.querySelectorAll('.filter__nav');
+
+		if (filterCheckboxLists) {
+			filterCheckboxLists.forEach(list => {
+				const filterCheckboxItems = list.querySelectorAll('li input');
+
+				// Убираем ВСЕ активные чекбоксы и кнопки очистки
+				filterAllReset.addEventListener('click', function () {
+					filterCheckboxItems.forEach(item => {
+						item.checked = false;
+					});
+				})
+			});
+		}
+	}
+}
+filterFunction()
+
+/* ====================================
+Открыть/закрыть фильтры (в моб.версии)
+==================================== */
+function openFilter() {
+	const filterCloseBtn = document.querySelector('.filter__close');
+	const filterOpenBtn = document.querySelectorAll('.rs-catalog__open-filter');
+
+	filterOpenBtn.forEach(btn => {
+		btn.addEventListener('click', function (e) {
+			e.preventDefault();
+			if (document.documentElement.classList.contains("filter-open")) {
+				filterClose()
+			} else {
+				filterOpen()
+			}
+		})
+	});
+
+	filterCloseBtn.addEventListener('click', function (e) {
+		e.preventDefault();
+		filterClose()
+	});
+
+	// Функции открытия бургер-меню с блокировкой скролла
+	function filterOpen() {
+		bodyLock();
+		document.documentElement.classList.add("filter-open");
+	}
+	function filterClose() {
+		bodyUnlock();
+		document.documentElement.classList.remove("filter-open");
+	}
+}
+if (document.querySelector('.rs-catalog__open-filter') && document.querySelector('.filter__close')) {
+	openFilter()
+}
+
+/* ====================================
+Смена отображения товаров
+==================================== */
+function changeViewProduct() {
+	const gridBtn = document.getElementById('grid-view-btn');
+	const listBtn = document.getElementById('list-view-btn');
+	const gridBlock = document.getElementById('grid-view-block');
+	const listBlock = document.getElementById('list-view-block');
+
+	if (gridBtn && listBtn && gridBlock && listBlock) {
+		gridBtn.addEventListener('click', function (e) {
+			e.preventDefault();
+			listBtn.classList.remove('_active');
+			gridBtn.classList.add('_active');
+			listBlock.classList.remove('_active');
+			gridBlock.classList.add('_active');
+		})
+
+		listBtn.addEventListener('click', function (e) {
+			e.preventDefault();
+			listBtn.classList.add('_active');
+			gridBtn.classList.remove('_active');
+			listBlock.classList.add('_active');
+			gridBlock.classList.remove('_active');
+		})
+	}
+}
+changeViewProduct()
