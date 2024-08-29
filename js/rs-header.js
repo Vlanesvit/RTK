@@ -142,6 +142,53 @@ function menuFunction() {
 }
 menuFunction()
 
+function catalogMenu() {
+	// Получаем элементы
+	const catalogBtn = document.querySelector('.rs-header__catalog_btn');
+	const catalogMenu = document.querySelector('.rs-header__catalog_menu');
+	const catalogTitles = document.querySelectorAll('.rs-header__catalog_title');
+	const catalogBodies = document.querySelectorAll('.rs-header__catalog_body');
+
+	// Функция для открытия или закрытия меню
+	const toggleMenu = () => {
+		catalogMenu.classList.toggle('active');
+	};
+
+	// Функция для скрытия всех разделов меню и удаления активных классов
+	const hideAllSections = () => {
+		catalogBodies.forEach(section => {
+			section.classList.remove('_active-category');
+		});
+		catalogTitles.forEach(title => {
+			title.classList.remove('_active-category');
+		});
+	};
+
+	// Обработчик клика на кнопку открытия меню
+	catalogBtn.addEventListener('click', (event) => {
+		event.stopPropagation(); // Останавливаем всплытие события
+		toggleMenu();
+	});
+
+	// Обработчик клика на кнопки разделов
+	catalogTitles.forEach((title, index) => {
+		title.addEventListener('click', (event) => {
+			event.stopPropagation(); // Останавливаем всплытие события
+			hideAllSections(); // Скрываем все разделы и убираем активные классы
+			title.classList.add('_active-category'); // Добавляем активный класс к выбранной кнопке
+			catalogBodies[index].classList.add('_active-category'); // Добавляем активный класс к соответствующему разделу
+		});
+	});
+
+	// Обработчик клика вне меню для закрытия меню и удаления активных классов
+	document.addEventListener('click', (event) => {
+		if (!catalogMenu.contains(event.target) && !catalogBtn.contains(event.target)) {
+			catalogMenu.classList.remove('active');
+		}
+	});
+}
+catalogMenu()
+
 /* ====================================
 Якорные ссылки
 ==================================== */

@@ -1,0 +1,99 @@
+.rs-catalog.rs-catalog-category-page {
+  margin-top: 56px;
+}
+@media (max-width: 1169.98px) {
+  .rs-catalog-category-page .rs-catalog__container > h2 {
+    display: block;
+  }
+}
+.rs-catalog-category-page .rs-catalog__products {
+  margin-top: 34px;
+}
+.rs-catalog-category-page .rs-catalog__products_block-grid {
+  margin: -10px;
+}
+.rs-catalog__products_block-grid > .product-category {
+  width: 16.6666666667%;
+  padding: 10px;
+}
+@media (max-width: 1439.98px) {
+  .rs-catalog__products_block-grid > .product-category {
+    width: 20%;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-catalog__products_block-grid > .product-category {
+    width: 25%;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-catalog__products_block-grid > .product-category {
+    width: 33.3333333333%;
+  }
+}
+@media (max-width: 539.98px) {
+  .rs-catalog__products_block-grid > .product-category {
+    width: 100%;
+  }
+}
+
+@media (any-hover: hover) {
+  .product-category:hover .product-category__img {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+.product-category__link {
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  min-height: 193px;
+  background: #f1f5f7;
+  border-radius: 7px;
+  position: relative;
+}
+@media (max-width: 539.98px) {
+  .product-category__link {
+    min-height: 77px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+.product-category__desc {
+  padding: 20px 20px 15px;
+}
+.product-category__desc h6 {
+  letter-spacing: 0px;
+  line-height: 110%;
+}
+.product-category__img {
+  height: 140px;
+  width: 100%;
+  -webkit-transform-origin: bottom right;
+      -ms-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+@media (max-width: 539.98px) {
+  .product-category__img {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 122px;
+  }
+}
+.product-category__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: bottom right;
+     object-position: bottom right;
+}
