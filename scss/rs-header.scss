@@ -337,7 +337,8 @@
 			}
 
 			& > li {
-				& > a {
+				& > a,
+				& > button {
 					color: #687684;
 
 					@media (max-width: 1169.98px) {
@@ -351,15 +352,18 @@
 
 				@media (any-hover: hover) {
 					&:hover {
-						& > a {
+						& > a,
+						& > button {
 							color: var(--primary-color) !important;
 						}
 					}
 				}
 
-				a {
+				a,
+				button {
 					transition: all 0.3s ease 0s;
 					display: flex;
+					width: 100%;
 					align-items: center;
 					justify-content: space-between;
 
@@ -464,7 +468,8 @@
 						}
 
 						li {
-							a {
+							a,
+							button {
 								color: #000;
 								font-size: 16px;
 								font-style: normal;
@@ -872,6 +877,9 @@
 
 	// .rs-header__catalog
 	&__catalog {
+		width: 100%;
+		max-width: 194px;
+
 		@media (max-width: 991.98px) {
 			display: none;
 		}
@@ -879,6 +887,31 @@
 		// .rs-header__catalog_btn
 		&_btn {
 			width: 100%;
+
+			&::before {
+				content: "";
+				position: relative;
+				display: inline-block;
+				background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12 1L1 12M1 1L12 12' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				width: 13px;
+				height: 13px;
+				margin-right: 10px;
+				opacity: 0;
+				margin-left: -23px;
+				transition: all 0.3s ease 0s;
+			}
+
+			&._active {
+				background-color: var(--second-color);
+
+				&::before {
+					margin-left: -0px;
+					opacity: 1;
+				}
+			}
 		}
 
 		// .rs-header__catalog_menu
@@ -899,7 +932,7 @@
 			pointer-events: none;
 			transition: all 0.3s ease 0s;
 
-			&.active {
+			&._active {
 				opacity: 1;
 				visibility: visible;
 				transform: translateX(-50%) translateY(0px);
@@ -952,7 +985,7 @@
 			font-weight: 400;
 			font-size: 16px;
 			// line-height: 18px;
-			line-height: 110%;
+			line-height: 120%;
 			letter-spacing: 0.03em;
 			text-transform: uppercase;
 			color: #000;

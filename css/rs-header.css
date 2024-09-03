@@ -339,11 +339,11 @@
     margin-top: 30px;
   }
 }
-.rs-header .menu__list > li > a {
+.rs-header .menu__list > li > a, .rs-header .menu__list > li > button {
   color: #687684;
 }
 @media (max-width: 1169.98px) {
-  .rs-header .menu__list > li > a {
+  .rs-header .menu__list > li > a, .rs-header .menu__list > li > button {
     color: #303030;
   }
 }
@@ -351,16 +351,18 @@
   position: relative;
 }
 @media (any-hover: hover) {
-  .rs-header .menu__list li:hover > a {
+  .rs-header .menu__list li:hover > a, .rs-header .menu__list li:hover > button {
     color: var(--primary-color) !important;
   }
 }
-.rs-header .menu__list li a {
+.rs-header .menu__list li a,
+.rs-header .menu__list li button {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -368,7 +370,8 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.rs-header .menu__list li a i {
+.rs-header .menu__list li a i,
+.rs-header .menu__list li button i {
   position: relative;
   max-width: 8px;
   max-height: 8px;
@@ -386,11 +389,14 @@
           justify-content: center;
 }
 @media (min-width: 991.98px) {
-  .rs-header .menu__list li a i {
+  .rs-header .menu__list li a i,
+  .rs-header .menu__list li button i {
     display: none;
   }
 }
-.rs-header .menu__list li a i::before, .rs-header .menu__list li a i::after {
+.rs-header .menu__list li a i::before, .rs-header .menu__list li a i::after,
+.rs-header .menu__list li button i::before,
+.rs-header .menu__list li button i::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -404,7 +410,8 @@
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-.rs-header .menu__list li a i::before {
+.rs-header .menu__list li a i::before,
+.rs-header .menu__list li button i::before {
   -webkit-transform: translate(-50%, -50%) rotate(0deg);
       -ms-transform: translate(-50%, -50%) rotate(0deg);
           transform: translate(-50%, -50%) rotate(0deg);
@@ -473,7 +480,8 @@
     margin-bottom: 15px;
   }
 }
-.rs-header .menu__list li.dropdown ul.dropdown__menu li a {
+.rs-header .menu__list li.dropdown ul.dropdown__menu li a,
+.rs-header .menu__list li.dropdown ul.dropdown__menu li button {
   color: #000;
   font-size: 16px;
   font-style: normal;
@@ -483,13 +491,15 @@
   padding: 10.2px 20px;
 }
 @media (max-width: 1439.98px) {
-  .rs-header .menu__list li.dropdown ul.dropdown__menu li a {
+  .rs-header .menu__list li.dropdown ul.dropdown__menu li a,
+  .rs-header .menu__list li.dropdown ul.dropdown__menu li button {
     font-size: 14px;
     padding: 8px 20px;
   }
 }
 @media (max-width: 1169.98px) {
-  .rs-header .menu__list li.dropdown ul.dropdown__menu li a {
+  .rs-header .menu__list li.dropdown ul.dropdown__menu li a,
+  .rs-header .menu__list li.dropdown ul.dropdown__menu li button {
     font-size: 13px;
     padding: 0;
     color: #687684;
@@ -888,6 +898,10 @@
     position: relative;
   }
 }
+.rs-header__catalog {
+  width: 100%;
+  max-width: 194px;
+}
 @media (max-width: 991.98px) {
   .rs-header__catalog {
     display: none;
@@ -895,6 +909,29 @@
 }
 .rs-header__catalog_btn {
   width: 100%;
+}
+.rs-header__catalog_btn::before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12 1L1 12M1 1L12 12' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 13px;
+  height: 13px;
+  margin-right: 10px;
+  opacity: 0;
+  margin-left: -23px;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.rs-header__catalog_btn._active {
+  background-color: var(--second-color);
+}
+.rs-header__catalog_btn._active::before {
+  margin-left: 0px;
+  opacity: 1;
 }
 .rs-header__catalog_menu {
   position: absolute;
@@ -915,7 +952,7 @@
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-.rs-header__catalog_menu.active {
+.rs-header__catalog_menu._active {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translateX(-50%) translateY(0px);
@@ -974,7 +1011,7 @@
           align-items: center;
   font-weight: 400;
   font-size: 16px;
-  line-height: 110%;
+  line-height: 120%;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #000;

@@ -66,39 +66,48 @@ function menuFunction() {
 
 			// Добавляем иконки в пункты с выпадающим меню
 			menuItemDropdowns.forEach(item => {
-				const menuLink = item.querySelector('a');
-				let icon = document.createElement('i');
-				menuLink.append(icon);
+				const menuLink = Array.from(item.children).find(child => child.matches('a'));
+				if (menuLink) {
+					let icon = document.createElement('i');
+					menuLink.append(icon);
+				}
 			});
 
 			// Функция для отдельных уровней меню, чтобы открывался только один пункт, а открытые закрывались, кроме тех, кто выше уровнем
 			function openLvlMenu(li, ul) {
 				li.forEach(item => {
 					const menuItemList = item.querySelector('ul');
+					const menuItemBtn = item.querySelector('button');
 					const menuItemIcons = item.querySelector('a > i');
 
-					// Раскрываем меню при клике на иконку
-					menuItemIcons.addEventListener('click', (e) => {
-						e.preventDefault();
-						_slideToggle(menuItemList, 500);
-						ul.forEach(menu => {
-							if (!menu.hasAttribute('hidden')) {
-								_slideUp(menu, 500);
-							}
-						});
+					const addEventList = (btn) => {
+						// Раскрываем меню при клике на иконку
+						if (btn) {
+							btn.addEventListener('click', (e) => {
+								e.preventDefault();
+								_slideToggle(menuItemList, 500);
+								ul.forEach(menu => {
+									if (!menu.hasAttribute('hidden')) {
+										_slideUp(menu, 500);
+									}
+								});
 
-						// Проходимся по всем пунктам и ищем активные классы, убираем их и добавляем активный класс кликнутому пункту
-						if (!menuItemIcons.closest('.dropdown').classList.contains('_open-menu')) {
-							li.forEach(itemDrop => {
-								if (itemDrop.classList.contains('_open-menu')) {
-									itemDrop.classList.remove('_open-menu')
+								// Проходимся по всем пунктам и ищем активные классы, убираем их и добавляем активный класс кликнутому пункту
+								if (!btn.closest('.dropdown').classList.contains('_open-menu')) {
+									li.forEach(itemDrop => {
+										if (itemDrop.classList.contains('_open-menu')) {
+											itemDrop.classList.remove('_open-menu')
+										}
+									});
+									btn.closest('.dropdown').classList.add('_open-menu');
+								} else if (btn.closest('.dropdown').classList.contains('_open-menu')) {
+									btn.closest('.dropdown').classList.remove('_open-menu');
 								}
 							});
-							menuItemIcons.closest('.dropdown').classList.add('_open-menu');
-						} else if (menuItemIcons.closest('.dropdown').classList.contains('_open-menu')) {
-							menuItemIcons.closest('.dropdown').classList.remove('_open-menu');
 						}
-					});
+					}
+					addEventList(menuItemBtn)
+					addEventList(menuItemIcons)
 				});
 			}
 
@@ -151,7 +160,7 @@ function catalogMenu() {
 
 	// Функция для открытия или закрытия меню
 	const toggleMenu = () => {
-		catalogMenu.classList.toggle('active');
+		catalogMenu.classList.toggle('_active');
 	};
 
 	// Функция для скрытия всех разделов меню и удаления активных классов
@@ -167,7 +176,18 @@ function catalogMenu() {
 	// Обработчик клика на кнопку открытия меню
 	catalogBtn.addEventListener('click', (event) => {
 		event.stopPropagation(); // Останавливаем всплытие события
+
+		if (catalogBtn.classList.contains('_btn-primary')) {
+			catalogBtn.classList.remove('_btn-primary')
+			catalogBtn.classList.add('_btn-second')
+		} else if (catalogBtn.classList.contains('_btn-second')) {
+			catalogBtn.classList.remove('_btn-second')
+			catalogBtn.classList.add('_btn-primary')
+		}
+
+		catalogBtn.classList.toggle('_active')
 		toggleMenu();
+		bodyLockToggle();
 	});
 
 	// Обработчик клика на кнопки разделов
