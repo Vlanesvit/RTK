@@ -165,27 +165,29 @@ function catalogMenu() {
 
 	// Функция для скрытия всех разделов меню и удаления активных классов
 	const hideAllSections = () => {
-		catalogBodies.forEach(section => {
-			section.classList.remove('_active-category');
-		});
-		catalogTitles.forEach(title => {
-			title.classList.remove('_active-category');
-		});
+		catalogBodies.forEach(section => section.classList.remove('_active-category'));
+		catalogTitles.forEach(title => title.classList.remove('_active-category'));
+	};
+
+	// Сохраняем активные элементы в localStorage
+	const saveActiveCategory = (index) => {
+		localStorage.setItem('activeCategoryIndex', index);
+	};
+
+	// Восстанавливаем активную категорию из localStorage при загрузке страницы
+	const restoreActiveCategory = () => {
+		hideAllSections();
+		const activeCategoryIndex = localStorage.getItem('activeCategoryIndex');
+		if (activeCategoryIndex !== null) {
+			catalogTitles[activeCategoryIndex].classList.add('_active-category');
+			catalogBodies[activeCategoryIndex].classList.add('_active-category');
+		}
 	};
 
 	// Обработчик клика на кнопку открытия меню
 	catalogBtn.addEventListener('click', (event) => {
-		event.stopPropagation(); // Останавливаем всплытие события
-
-		if (catalogBtn.classList.contains('_btn-primary')) {
-			catalogBtn.classList.remove('_btn-primary')
-			catalogBtn.classList.add('_btn-second')
-		} else if (catalogBtn.classList.contains('_btn-second')) {
-			catalogBtn.classList.remove('_btn-second')
-			catalogBtn.classList.add('_btn-primary')
-		}
-
-		catalogBtn.classList.toggle('_active')
+		event.stopPropagation();
+		catalogBtn.classList.toggle('_active');
 		toggleMenu();
 		bodyLockToggle();
 	});
@@ -193,19 +195,33 @@ function catalogMenu() {
 	// Обработчик клика на кнопки разделов
 	catalogTitles.forEach((title, index) => {
 		title.addEventListener('click', (event) => {
-			event.stopPropagation(); // Останавливаем всплытие события
-			hideAllSections(); // Скрываем все разделы и убираем активные классы
-			title.classList.add('_active-category'); // Добавляем активный класс к выбранной кнопке
-			catalogBodies[index].classList.add('_active-category'); // Добавляем активный класс к соответствующему разделу
+			event.stopPropagation();
+			hideAllSections();
+			title.classList.add('_active-category');
+			catalogBodies[index].classList.add('_active-category');
+			saveActiveCategory(index);
 		});
 	});
 
-	// Обработчик клика вне меню для закрытия меню и удаления активных классов
+	// Обработчик наведения на кнопки разделов
+	catalogTitles.forEach((title, index) => {
+		title.addEventListener('mouseenter', (event) => {
+			hideAllSections(); // Скрываем все разделы и убираем активные классы
+			title.classList.add('_active-category'); // Добавляем активный класс к текущему заголовку
+			catalogBodies[index].classList.add('_active-category'); // Добавляем активный класс к соответствующему разделу
+			saveActiveCategory(index);
+		});
+	});
+
+	// Обработчик клика вне меню
 	document.addEventListener('click', (event) => {
 		if (!catalogMenu.contains(event.target) && !catalogBtn.contains(event.target)) {
 			catalogMenu.classList.remove('active');
 		}
 	});
+
+	// Восстанавливаем активную категорию при загрузке страницы
+	restoreActiveCategory();
 }
 catalogMenu()
 

@@ -963,7 +963,8 @@
 			padding-right: 20px;
 			margin-right: 32px;
 			max-height: calc(100vh - 250px);
-			overflow-y: scroll;
+			pointer-events: auto;
+			overflow-y: auto;
 			overflow-x: hidden;
 
 			@media (max-width: 1439.98px) {
@@ -995,6 +996,8 @@
 			position: relative;
 			padding-right: 20px;
 			transition: all 0.3s ease 0s;
+			pointer-events: auto;
+			overflow-y: auto;
 
 			@media (max-width: 1439.98px) {
 				font-size: 14px;
@@ -1063,10 +1066,18 @@
 		}
 
 		&_body {
+			opacity: 0;
 			display: none;
+			transition: opacity 0.3s ease 0s;
+			transition-behavior: allow-discrete;
 
 			&._active-category {
 				display: block;
+				opacity: 1;
+
+				@starting-style {
+					opacity: 0;
+				}
 			}
 
 			& > h4 {
@@ -1086,7 +1097,8 @@
 
 		&_list {
 			max-height: calc(100vh - 300px);
-			overflow-y: scroll;
+			pointer-events: auto;
+			overflow-y: auto;
 			overflow-x: hidden;
 
 			@media (max-width: 1439.98px) {
